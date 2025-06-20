@@ -1,28 +1,29 @@
-﻿using System;
+﻿// ==========================
+// File: Program.cs
+// Entry point that tests the Factory Method pattern
+// ==========================
+using System;
 
-namespace SingletonPatternExample
+namespace FactoryMethodPatternExample
 {
     class Program
     {
         static void Main(string[] args)
         {
-            // Retrieve the first instance of Logger
-            Logger logger1 = Logger.GetInstance();
-            logger1.Log("This is the first log message.");
+            // Create a Word Document
+            DocumentFactory wordFactory = new WordFactory();
+            IDocument word = wordFactory.CreateDocument();
+            word.Open();
 
-            // Retrieve the second instance of Logger
-            Logger logger2 = Logger.GetInstance();
-            logger2.Log("This is the second log message.");
+            // Create a PDF Document
+            DocumentFactory pdfFactory = new PdfFactory();
+            IDocument pdf = pdfFactory.CreateDocument();
+            pdf.Open();
 
-            // Check if both references point to the same object
-            if (object.ReferenceEquals(logger1, logger2))
-            {
-                Console.WriteLine("Both logger instances are the same. Singleton confirmed.");
-            }
-            else
-            {
-                Console.WriteLine("Different instances detected. Singleton pattern failed.");
-            }
+            // Create an Excel Document
+            DocumentFactory excelFactory = new ExcelFactory();
+            IDocument excel = excelFactory.CreateDocument();
+            excel.Open();
         }
     }
 }
