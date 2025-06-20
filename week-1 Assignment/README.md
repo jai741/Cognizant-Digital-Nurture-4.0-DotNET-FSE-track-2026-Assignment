@@ -1,6 +1,6 @@
 
 
-## ✅ Completed Exercises
+##  Completed Exercises
 
 ### 1. Singleton Pattern (Design Pattern)
 - Created a `Logger` class that ensures only one instance exists.
@@ -20,7 +20,7 @@
 
 ---
 
-## 🧠 Technologies Used
+## Technologies Used
 - Language: **C# (.NET Core 6/7)**
 - IDE: **Visual Studio Code**
 - Version Control: **Git & GitHub**
