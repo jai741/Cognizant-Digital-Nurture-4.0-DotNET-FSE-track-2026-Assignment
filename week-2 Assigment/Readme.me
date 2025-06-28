@@ -1,0 +1,75 @@
+1. NUnit Testing Overview
+NUnit is a widely used unit-testing framework for .NET applications. It provides attributes like [TestFixture], [Test], [SetUp], [TearDown], and [TestCase] to organize and execute unit tests.
+
+Basic Setup:
+- Install the following NuGet packages in your test project:
+  - NUnit
+  - NUnit3TestAdapter
+  - Microsoft.NET.Test.Sdk
+
+- Write test classes using [TestFixture]
+- Define test methods using [Test] and optional [TestCase] for parameterized tests
+
+Example:
+```csharp
+[TestFixture]
+public class CalculatorTests
+{
+    [TestCase(2, 3, 5)]
+    [TestCase(-1, -2, -3)]
+    public void Add_ReturnsExpectedSum(int a, int b, int expected)
+    {
+        Assert.AreEqual(expected, a + b);
+    }
+}
+```
+
+Run tests using Test Explorer in Visual Studio.
+2. Moq and Mocking for Unit Testing
+Moq is a popular mocking library that allows you to create mock objects of interfaces. This is especially useful for testing code that depends on external systems (email, database, file system).
+
+Basic Steps:
+- Add the Moq package via NuGet
+- Use Mock<T> to create mock objects
+- Setup method expectations and return values
+- Verify calls were made
+
+Example:
+```csharp
+var mockService = new Mock<IMyService>();
+mockService.Setup(s => s.GetData()).Returns("Mocked Value");
+
+var controller = new MyController(mockService.Object);
+Assert.AreEqual("Mocked Value", controller.Process());
+```
+
+This allows unit testing without needing real implementations.
+3. SQL Server Setup and Use in Projects
+SQL Server is used for storing and retrieving data in .NET projects. During development and testing, you may connect to a local SQL Server instance or use mock data layers.
+
+Steps to connect and use:
+- Install SQL Server Management Studio (SSMS)
+- Create a database and tables via SQL scripts
+- In .NET, connect using connection strings
+
+Example Connection String:
+```csharp
+string conn = "Server=localhost;Database=TestDb;Trusted_Connection=True;";
+```
+
+Testing Tips:
+- Avoid using real DB in unit tests
+- Use repository pattern to isolate DB logic
+- Use Moq to fake repository methods for unit tests
+
+This makes code modular and easier to test.
+4. Combined Practical Tips for Assignment
+- Always write code to interfaces (IMailSender, IRepository, etc.)
+- Use Dependency Injection to pass services into constructors
+- Mock external dependencies in unit tests using Moq
+- Use [TestFixture], [Test], and [TestCase] to structure tests
+- Avoid hitting real services in unit tests (use mocks/fakes/stubs)
+- Run tests using Test Explorer to verify functionality quickly
+- Use SQL Server for data persistence in actual app, mock for tests
+
+With these principles, your application remains testable, maintainable, and scalable.
