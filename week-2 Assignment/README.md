@@ -1,4 +1,4 @@
-# 🧠 Assignment: Advanced SQL & NUnit + Moq Testing
+#  Assignment: Advanced SQL & NUnit + Moq Testing
 
 This project demonstrates core concepts of backend development and testing using:
 
@@ -8,7 +8,7 @@ This project demonstrates core concepts of backend development and testing using
 
 ---
 
-## 📂 Project Overview
+##  Project Overview
 
 This assignment contains two major modules:
 
@@ -19,21 +19,21 @@ Each part is structured to show clean, modular, and testable code that follows b
 
 ---
 
-## 🔹 Part 1: Advanced SQL (Microsoft SQL Server)
+##  Part 1: Advanced SQL (Microsoft SQL Server)
 
 ### 🛠 Technologies Used
 
 - SQL Server 2019 or above
 - SQL Server Management Studio (SSMS)
 
-### ✅ Features Covered
+###  Features Covered
 
 - `CREATE TABLE` statements with `PRIMARY KEY`, `FOREIGN KEY` constraints
 - `INSERT`, `SELECT`, `JOIN` queries
 - Window functions: `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`
 - Stored procedures with parameters
 
-### ▶ Sample Execution
+###  Sample Execution
 
 To retrieve employees by department:
 ```sql
