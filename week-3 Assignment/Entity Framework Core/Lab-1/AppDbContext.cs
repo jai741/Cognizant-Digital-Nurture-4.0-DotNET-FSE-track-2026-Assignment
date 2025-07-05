@@ -5,12 +5,12 @@ namespace EFCore8Assignment.Data
 {
     public class AppDbContext : DbContext
     {
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            // Replace with your SQL Server connection string
-            optionsBuilder.UseSqlServer("Server=JAI;Database=EFCore8DB;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=JAI;Database=RetailInventoryDB;Trusted_Connection=True;TrustServerCertificate=True;");
         }
     }
 }
