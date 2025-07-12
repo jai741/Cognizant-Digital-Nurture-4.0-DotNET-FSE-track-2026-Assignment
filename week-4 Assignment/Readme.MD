@@ -52,3 +52,49 @@ ASP.NET Core binds JSON request bodies to C# objects using `[FromBody]`.
 **Example:**
 ```csharp
 public IActionResult PostEmployee([FromBody] Employee emp)
+
+---
+
+## Assignment 4: CRUD Operations
+
+### What is CRUD?  
+CRUD stands for **Create, Read, Update, Delete** – the four basic operations of persistent storage.  
+
+| Operation | HTTP Verb | Example Route         |
+|-----------|-----------|------------------------|
+| Create    | POST      | `/api/employees`      |
+| Read      | GET       | `/api/employees`      |
+| Update    | PUT       | `/api/employees/{id}` |
+| Delete    | DELETE    | `/api/employees/{id}` |
+
+### Implementation in ASP.NET Core  
+- Used a **hardcoded list** of Employees to simulate a database.  
+- Added API endpoints for all CRUD operations in `EmployeeController.cs`.  
+- Used `[FromBody]` to accept JSON data in POST and PUT methods.  
+
+### Validation Logic  
+- If the provided `id <= 0`, return **400 BadRequest** with message `Invalid employee id`.  
+- If `id` is not found in the employee list, return **400 BadRequest**.  
+- On successful PUT or DELETE, return the updated employee object or confirmation message.
+
+### Key Files:  
+- `Controllers/EmployeeController.cs`: Handles all CRUD operations.  
+
+---
+
+## Assignment 5: CORS & JWT Authentication
+
+### What is CORS?  
+**Cross-Origin Resource Sharing (CORS)** allows your API to be accessed by web apps hosted on different domains.  
+- Enabled using:  
+  ```csharp
+  services.AddCors(options =>
+  {
+      options.AddPolicy("AllowAll", builder =>
+      {
+          builder.AllowAnyOrigin()
+                 .AllowAnyMethod()
+                 .AllowAnyHeader();
+      });
+  });
+  app.UseCors("AllowAll");
