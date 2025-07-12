@@ -176,17 +176,4 @@ builder.Services.AddAuthentication(options =>
 
 ---
 
-## Folder Structure
 
-```
-/MyFirstWebAPI        <-- Assignment 1
-/SwaggerWebAPI         <-- Assignment 2
-/CustomFilterWebAPI    <-- Assignment 3
-/CrudWebAPI            <-- Assignment 4
-/JwtWebApiDemo         <-- Assignment 5
-```
-
----
-
-## Author
-DOTNET Full Stack Engineer - Assignments Submission
